@@ -14,6 +14,7 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import FilterListIcon from "@mui/icons-material/FilterList";
+import { PiEyeLight } from "react-icons/pi";
 
 // #0966c2
 
@@ -59,9 +60,9 @@ export default function BasicTable() {
         sx={{ pt:1.5,mb:2 }}
       >
         <Box display="flex" alignItems="center">
-          <Typography variant="h6">Candidate Status</Typography>
+          <Typography sx={{fontSize:"20px"}}>Candidate Status</Typography>
           <Box sx={{ ml: 2 }}>
-            <Link href="#" variant="h6">
+            <Link href="#" sx={{fontSize:"20px"}}>
               View All
             </Link>
           </Box>
@@ -71,7 +72,7 @@ export default function BasicTable() {
           <Paper
             component="form"
             sx={{
-              p: "1px 2px",
+              p: "1px",
               display: "flex",
               alignItems: "center",
               width: 300,
@@ -83,7 +84,7 @@ export default function BasicTable() {
               placeholder="Search..."
               inputProps={{ "aria-label": "search google maps" }}
             />
-            <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+            <IconButton type="button" sx={{ p: "6px" }} aria-label="search">
               <SearchIcon />
             </IconButton>
           </Paper>
@@ -94,13 +95,13 @@ export default function BasicTable() {
               p: "1px 2px",
               display: "flex",
               alignItems: "center",
-              width: 120,
+              width: 100,
             }}
           >
-            <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+            <IconButton type="button" sx={{ p: "6px" }} aria-label="search">
               <FilterListIcon color="primary" />
             </IconButton>
-            <Typography variant="h5">Filter</Typography>
+            <Typography sx={{fontSize:"20px"}}>Filter</Typography>
           </Paper>
         </Box>
       </Box>
@@ -111,16 +112,16 @@ export default function BasicTable() {
             style={{ borderBottom: "2px solid", backgroundColor: "#f5f5f5" }}
           >
             <TableRow>
-              <TableCell>Job ID</TableCell>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Position</TableCell>
-              <TableCell align="right">1st Level</TableCell>
-              <TableCell align="right">2nd Level</TableCell>
-              <TableCell align="right">3rd Level</TableCell>
-              <TableCell align="right">4th Level</TableCell>
-              <TableCell align="right">Total Marks</TableCell>
-              <TableCell align="right">Status</TableCell>
-              <TableCell align="right">Action</TableCell>
+              <TableCell sx={{fontWeight:"bold"}}>Job ID</TableCell>
+              <TableCell align="right" sx={{fontWeight:"bold"}}>Name</TableCell>
+              <TableCell align="right" sx={{fontWeight:"bold"}}>Position</TableCell>
+              <TableCell align="right" sx={{fontWeight:"bold"}}>1st Level</TableCell>
+              <TableCell align="right" sx={{fontWeight:"bold"}}>2nd Level</TableCell>
+              <TableCell align="right" sx={{fontWeight:"bold"}}>3rd Level</TableCell>
+              <TableCell align="right" sx={{fontWeight:"bold"}}>4th Level</TableCell>
+              <TableCell align="right" sx={{fontWeight:"bold"}}>Total Marks</TableCell>
+              <TableCell align="right" sx={{fontWeight:"bold"}}>Status</TableCell>
+              <TableCell align="right" sx={{fontWeight:"bold"}}>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -140,27 +141,19 @@ export default function BasicTable() {
                 <TableCell align="right">{row.fourthLevel}</TableCell>
                 <TableCell align="right">{row.totalMarks}</TableCell>
                 <TableCell align="right">
+
                   {row?.status === "Hired" && (
-                    <Button size="small" variant="outlined" color="success">
-                      {" "}
-                      Hired{" "}
-                    </Button>
+                    <button  style={{backgroundColor:"#DBF3DA", color:"#108F03", border:"none", padding:"4px", width:"60px", borderRadius:"2px"}}>Hired</button>
                   )}
                   {row?.status === "Active" && (
-                    <Button size="small" variant="outlined" color="warning">
-                      {" "}
-                      Active{" "}
-                    </Button>
+                    <button  style={{backgroundColor:"#FFF9EC", color:"#F5C961", border:"none", padding:"4px", width:"60px", borderRadius:"2px"}}>Active</button>
                   )}
                   {row?.status === "Reject" && (
-                    <Button size="small" variant="outlined" color="error">
-                      {" "}
-                      Reject{" "}
-                    </Button>
+                    <button  style={{backgroundColor:"#FBE2E2", color:"#D63B3B", border:"none", padding:"4px", width:"60px", borderRadius:"2px"}}>Reject</button>
                   )}
                 </TableCell>
                 <TableCell align="right">
-                  <RemoveRedEyeOutlinedIcon />
+                  <PiEyeLight style={{fontSize:"22px"}} />
                 </TableCell>
               </TableRow>
             ))}
